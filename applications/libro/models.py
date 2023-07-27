@@ -1,5 +1,8 @@
 from django.db import models
 
+# Managers
+from .managers import LibroManager
+
 # from local apps
 from applications.autor.models import Autor
 
@@ -19,6 +22,8 @@ class Libro(models.Model):
     fecha = models.DateField('Fecha de lanzamiento')
     portada = models.ImageField(upload_to='portada')
     visitas = models.PositiveIntegerField()
+
+    objects = LibroManager()
 
     def __str__(self):
         return self.titulo
