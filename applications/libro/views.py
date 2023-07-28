@@ -24,3 +24,12 @@ class ListLibros(ListView):
         else:
             # retorna listado sin filtros
             return Libro.objects.listar_libros(palabra_clave)
+
+
+class ListLibros2(ListView):
+    context_object_name = "lista_libros"
+    template_name = "libro/lista2.html"
+
+    def get_queryset(self):
+        
+        return Libro.objects.listar_libros_categoria('1')
